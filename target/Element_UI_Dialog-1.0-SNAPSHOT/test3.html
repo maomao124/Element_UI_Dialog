@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：Element_UI_Dialog
+  File name(文件名): test3
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/5/5
+  Time(创建时间)： 22:19
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/element-ui.css">
+    <script src="js/vue.js"></script>
+    <script src="js/element-ui.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <el-button type="text" @click="outerVisible = true">点击打开外层 Dialog</el-button>
+
+    <el-dialog title="外层 Dialog" :visible.sync="outerVisible">
+        <el-dialog
+                width="30%"
+                title="内层 Dialog"
+                :visible.sync="innerVisible"
+                append-to-body>
+        </el-dialog>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="outerVisible = false">取 消</el-button>
+            <el-button type="primary" @click="innerVisible = true">打开内层 Dialog</el-button>
+        </div>
+    </el-dialog>
+
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            outerVisible: false,
+            innerVisible: false
+        },
+        methods: {},
+        mounted()
+        {
+
+        }
+    })
+</script>
+</body>
+</html>
